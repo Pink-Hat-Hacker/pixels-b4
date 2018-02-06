@@ -38,6 +38,9 @@ function draw() {
                 if(key=="6"){
                 	n_filter(startingIndex, r, b, g, a);
                 }
+                if(key=="7"){
+                	free_filter(startingIndex, r, b, g, a, col, row);
+                }
 			}
 		}
 	}
@@ -83,5 +86,12 @@ function n_filter(startingIndex, r, b, g, a){
     pixels[startingIndex + 0] = 255-r; //red
 	pixels[startingIndex + 1] = 255-g; //green
 	pixels[startingIndex + 2] = 255-b; //blue
+	pixels[startingIndex + 3] = a; //alpha
+}
+
+function free_filter(startingIndex, r, b, g, a, col, row){
+    pixels[startingIndex + 0] = col-r; //red
+	pixels[startingIndex + 1] = 255-g; //green
+	pixels[startingIndex + 2] = row-b; //blue
 	pixels[startingIndex + 3] = a; //alpha
 }
