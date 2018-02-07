@@ -111,18 +111,6 @@ function p_filter(startingIndex, r, g, b, a){
     }
 }
 
-/*function horizontal_filter(startingIndex, r, g, b, a, row, col){
-    var rig = -lef - 300;
-    var lef = col - 300;
-    startingIndex = (rig + row * width) * 4;
-        
-    
-    pixels[startingIndex + 0] = r;
-    pixels[startingIndex + 1] = g;
-    pixels[startingIndex + 2] = b;
-    pixels[startingIndex + 3] = a;
-}*/
-
 function horizontal_filter(startingIndex, r, g, b, a, row, col){
     
     var ri = col - 300;
