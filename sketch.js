@@ -41,6 +41,12 @@ function draw() {
                 if(key=="7"){
                 	free_filter(startingIndex, r, b, g, a, col, row);
                 }
+                if(key=="8"){
+                	 p_filter(startingIndex, r, g, b, a);
+                }
+                if (key=="9"){
+                	horizontal_filter(startingIndex, r, g, b, a, row, col);
+                }
 			}
 		}
 	}
@@ -94,4 +100,38 @@ function free_filter(startingIndex, r, b, g, a, col, row){
 	pixels[startingIndex + 1] = 255-g; //green
 	pixels[startingIndex + 2] = row-b; //blue
 	pixels[startingIndex + 3] = a; //alpha
+}
+
+function p_filter(startingIndex, r, g, b, a){
+	if(startingIndex % 30 == 0){
+        pixels[startingIndex + 0] = 0;
+        pixels[startingIndex + 1] = 0;
+        pixels[startingIndex + 2] = 255;
+        pixels[startingIndex + 3] = a;
+    }
+}
+
+/*function horizontal_filter(startingIndex, r, g, b, a, row, col){
+    var rig = -lef - 300;
+    var lef = col - 300;
+    startingIndex = (rig + row * width) * 4;
+        
+    
+    pixels[startingIndex + 0] = r;
+    pixels[startingIndex + 1] = g;
+    pixels[startingIndex + 2] = b;
+    pixels[startingIndex + 3] = a;
+}*/
+
+function horizontal_filter(startingIndex, r, g, b, a, row, col){
+    
+    var ri = col - 300;
+    var le = -le - 300;
+    startingIndex = (ri + row * width) * 4;
+        
+    
+    pixels[startingIndex + 0] = r;
+    pixels[startingIndex + 1] = g;
+    pixels[startingIndex + 2] = b;
+    pixels[startingIndex + 3] = a;
 }
